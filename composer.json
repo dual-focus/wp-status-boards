@@ -1,0 +1,42 @@
+{
+    "name": "dualfocus/status-boards",
+    "description": "WordPress plugin for organizing and managing content using a Kanban style drag-and-drop interface.",
+    "type": "wordpress-plugin",
+    "license": "MPL-2.0",
+    "prefer-stable": true,
+    "minimum-stability": "dev",
+    "repositories": {},
+    "config": {
+        "sort-packages": true,
+        "process-timeout": 600,
+        "preferred-install": "dist",
+        "platform-check": false,
+        "platform": {
+            "php": "8.0"
+        },
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "DualFocus\\StatusBoards\\": "lib",
+            "DualFocus\\StatusBoards\\Admin": "lib/Admin"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+        "wp-coding-standards/wpcs": "^2.3"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+        ],
+        "lint": "./vendor/bin/phpcs --standard=./phpcs.xml",
+        "lint:fix": "phpcbf",
+        "deploy": [
+            "composer install --no-dev --prefer-dist --optimize-autoloader"
+        ]
+    },
+    "extra": {}
+}

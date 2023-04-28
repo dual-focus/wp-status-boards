@@ -1,0 +1,41 @@
+{
+  "name": "status-boards",
+  "version": "0.0.1",
+  "description": "WordPress plugin for organizing and managing content using a Kanban style drag-and-drop interface.",
+  "scripts": {
+    "build": "wp-scripts build",
+    "env:start": "ENV=$(docker ps -qf name=\"$(basename $(npx wp-env install-path))_wordpress\") && [ -z \"$ENV\" ] && npx wp-env start",
+    "env:stop": "ENV=$(docker ps -qf name=\"$(basename $(npx wp-env install-path))_wordpress\") && ! [ -z \"$ENV\" ] && npx wp-env stop",
+    "reset": "rm -drf node_modules vendor dist",
+    "setup": "npm install && composer install",
+    "start": "npm run env:start; wp-scripts start",
+    "stop": "npm run env:stop",
+    "test:e2e": "playwright test",
+    "lint:js": "wp-scripts lint-js 'src/**/*.js'",
+    "lint:css": "wp-scripts lint-style 'src/**/*.css'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dual-focus/wp-plugin-status-boards.git"
+  },
+  "author": "Dual Focus <support@dualfocus.dev>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/dual-focus/wp-plugin-status-boards/issues"
+  },
+  "homepage": "https://github.com/dual-focus/wp-plugin-status-boards#readme",
+  "devDependencies": {
+    "@wordpress/api-fetch": "^6.29.0",
+    "@wordpress/env": "^5.16.0",
+    "@wordpress/scripts": "^25.4.0",
+    "clean-webpack-plugin": "^4.0.0",
+    "csso-webpack-plugin": "^2.0.0-beta.3",
+    "mini-css-extract-plugin": "^2.7.2",
+    "terser-webpack-plugin": "^5.3.6",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-remove-empty-scripts": "^1.0.1"
+  },
+  "dependencies": {
+    "react-beautiful-dnd": "^13.1.1"
+  }
+}

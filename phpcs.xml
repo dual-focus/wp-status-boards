@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<ruleset name="Status Boards PHP Coding Standards">
+	<description>PHP coding standards for the Status Boards plugin for WordPress.</description>
+
+	<arg name="extensions" value="php" />
+	<arg name="colors" />
+	<arg value="s" />
+	<arg value="p" />
+
+	<file>lib</file>
+	<file>status-boards.php</file>>
+
+	<rule ref="WordPress">
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax.Found" />
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
+	</rule>
+
+	<exclude-pattern>*/dist/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>

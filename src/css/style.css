@@ -1,0 +1,41 @@
+body {
+	background: #fff !important;
+	overflow: hidden;
+}
+#status-boards {
+	display: flex;
+	gap: 1rem;
+	align-items: stretch;
+	margin-top: 1rem;
+	overflow-y: scroll;
+}
+
+#status-boards > div[class^="status--"] {
+	background: #ebecf0;
+	padding: 1rem .5rem;
+	border-radius: 3px;
+	width: calc( 300px - 1rem );
+	min-height: 300px;
+}
+
+#status-boards > div[class^="status--"] > div {
+
+}
+
+#status-boards h3 {
+	font-size: .9rem;
+	margin-top: 0;
+	color: #172b4d;
+	padding-left: .3rem;
+}
+
+.status-content-card {
+	width: calc( 100% - 1rem );
+	background: #fff;
+	padding: .5rem;
+	border-radius: 3px;
+}
+
+.status-content-card + .status-content-card  {
+	margin-top: .5rem;
+}
